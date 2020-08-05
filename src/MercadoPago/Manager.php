@@ -209,7 +209,7 @@ class Manager
             if (array_key_exists($key, $configuration->attributes)){
                 $attribute_conf = $configuration->attributes[$key];
 
-                if ($attribute_conf['serialize'] == False) {
+                if (!$attribute_conf['serialize'] || $attribute_conf['primaryKey']) {
                     // Do nothing
                     array_push($excluded_attributes, $key); 
                 }
