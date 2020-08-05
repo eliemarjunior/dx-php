@@ -252,7 +252,7 @@ class Manager
         $className = $this->_getEntityClassName($entity);
         $result = [];
 
-        $last_attributes = $entity->_last->toArray();
+        $last_attributes = ($entity->_last ? $entity->_last->toArray() : []);
         $new_attributes = $entity->toArray();
 
         $result = $this->_arrayDiffRecursive($last_attributes, $new_attributes);
